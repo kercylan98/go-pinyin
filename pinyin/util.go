@@ -118,7 +118,10 @@ func conver(mode converMode, pinyins []*Pinyin, split ...string) string {
 			}
 		}
 	}
-	return str.RemoveLast(result)
+	if !str.IsEmpty(sp) {
+		return str.RemoveLast(result)
+	}
+	return result
 }
 
 // 验证待转拼音的字符

@@ -15,7 +15,7 @@ type Pinyin struct {
 	err     error    // 解析错误
 }
 
-// String 获取不带声调的完整拼音
+// 获取不带声调的完整拼音
 func (slf *Pinyin) String() string {
 	if slf.result == " " {
 		return " "
@@ -37,7 +37,7 @@ func (slf *Pinyin) String() string {
 	return string(output)
 }
 
-// StringTone 获取完整的拼音
+// 获取完整的拼音
 func (slf *Pinyin) StringTone() string {
 	if slf.result == " " {
 		return " "
@@ -45,7 +45,7 @@ func (slf *Pinyin) StringTone() string {
 	return slf.result
 }
 
-// getFinals 获取韵母
+// 获取韵母
 func (slf *Pinyin) getFinals() {
 	for _, value := range templateRhyme {
 		if strings.Contains(slf.String(), value) {
@@ -63,7 +63,7 @@ func (slf *Pinyin) getFinals() {
 	}
 }
 
-// getInitials 获取声母
+// 获取声母
 func (slf *Pinyin) getInitials() {
 	temp := strings.Split(slf.result, "")
 	if len(temp) < 2 {

@@ -52,7 +52,7 @@ func TestGains(t *testing.T) {
 }
 
 func TestToString(t *testing.T) {
-	pinyins := Gains("你好噢")
+	pinyins := Gains("你好呀")
 	t.Log(ToString(pinyins, ""))
 	t.Log(ToString(pinyins))
 	t.Log(ToString(pinyins, ","))
@@ -60,7 +60,7 @@ func TestToString(t *testing.T) {
 }
 
 func TestToStringTone(t *testing.T) {
-	pinyins := Gains("你好噢")
+	pinyins := Gains("你好呀")
 	t.Log(ToStringTone(pinyins, ""))
 	t.Log(ToStringTone(pinyins))
 	t.Log(ToStringTone(pinyins, ","))
