@@ -2,29 +2,29 @@ package pinyin
 
 import (
 	"errors"
-	"github.com/KercyLAN/secret-dimension-core/str"
+	"github.com/kercylan98/klib/str"
 	"regexp"
 	"strings"
 )
 
-type converMode int
+type convertMode int
 
 var (
-	modeString     converMode = 1 // 不带音调
-	modeStringTone converMode = 2 // 携带音调
+	modeString     convertMode = 1 // 不带音调
+	modeStringTone convertMode = 2 // 携带音调
 )
 
-// 将一组Pinyin转换为不带声调的字符串
+// ToString 将一组Pinyin转换为不带声调的字符串
 func ToString(pinyins []*Pinyin, split ...string) string {
-	return conver(modeString, pinyins, split...)
+	return convert(modeString, pinyins, split...)
 }
 
-// 将一组Pinyin转换为带声调的字符串
+// ToStringTone 将一组Pinyin转换为带声调的字符串
 func ToStringTone(pinyins []*Pinyin, split ...string) string {
-	return conver(modeStringTone, pinyins, split...)
+	return convert(modeStringTone, pinyins, split...)
 }
 
-// 获取单个文字拼音
+// Gain 获取单个文字拼音
 func Gain(char string) *Pinyin {
 	py := &Pinyin{source: char}
 	// 验证传入值
@@ -54,7 +54,7 @@ func Gain(char string) *Pinyin {
 	return py
 }
 
-// 获取多个文字拼音
+// Gains 获取多个文字拼音
 func Gains(string string) []*Pinyin {
 	result := make([]*Pinyin, 0)
 	slice := strings.Split(string, "")
@@ -95,13 +95,13 @@ func Gains(string string) []*Pinyin {
 }
 
 // 快捷转换
-func conver(mode converMode, pinyins []*Pinyin, split ...string) string {
+func convert(mode convertMode, pinyin []*Pinyin, split ...string) string {
 	sp := " "
 	result := ""
 	if len(split) != 0 {
 		sp = split[0]
 	}
-	for _, pinyin := range pinyins {
+	for _, pinyin := range pinyin {
 		if pinyin.result == sp {
 			switch mode {
 			case modeString:

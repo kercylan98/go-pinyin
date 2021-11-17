@@ -37,7 +37,7 @@ func (slf *Pinyin) String() string {
 	return string(output)
 }
 
-// 获取完整的拼音
+// StringTone 获取完整的拼音
 func (slf *Pinyin) StringTone() string {
 	if slf.result == " " {
 		return " "

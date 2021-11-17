@@ -1,8 +1,8 @@
 package pinyin
 
 import (
-	"github.com/KercyLAN/secret-dimension-core/cipher"
-	"github.com/KercyLAN/secret-dimension-core/compress"
+	"github.com/kercylan98/klib/cipher"
+	"github.com/kercylan98/klib/compress"
 	"strconv"
 	"strings"
 )
@@ -76,15 +76,15 @@ func init() {
 	// 词典解析
 	{
 		// 解码并取到每一行
-		byte, err := cipher.Base64Decoded(pinyinBunch)
+		bytes, err := cipher.Base64Decoded(pinyinBunch)
 		if err != nil {
 			panic(err)
 		}
-		byte, err = compress.GZipUnCompress(byte)
+		bytes, err = compress.GZipUnCompress(bytes)
 		if err != nil {
 			panic(err)
 		}
-		lines := strings.Split(string(byte), "\n")
+		lines := strings.Split(string(bytes), "\n")
 		// 遍历所有行开始解析
 		for _, line := range lines {
 			// key and value || 3400=>qiū || 3400, qiū

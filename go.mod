@@ -1,7 +1,5 @@
-module secret-dimension-pinyin
+module github.com/kercylan98/go-pinyin
 
-go 1.14
+go 1.17
 
-require github.com/KercyLAN/secret-dimension-core v0.0.0-20201012065146-28ede75e5363
-
-replace github.com/KercyLAN/secret-dimension-core => ../secret-dimension-core
+require github.com/kercylan98/klib v0.0.0-20211117005804-648ada33663f // indirect

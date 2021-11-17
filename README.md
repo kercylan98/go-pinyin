@@ -1,3 +1,7 @@
-## Secret dimension `pinyin`
+# 介绍
+对汉语拼音的简单封装
 
-用于对汉字的拼音进行解析
+# 使用
+```
+go get github.com/kercylan98/go-pinyin
+```
